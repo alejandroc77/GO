@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"runtime"
 	"sync"
 )
@@ -17,6 +18,7 @@ func main() {
 	wg.Add(1)
 	foo()
 	bar()
+	verificar()
 
 }
 
@@ -31,4 +33,11 @@ func bar() {
 		fmt.Print("== last foo == ")
 		fmt.Println("\tbar:", i)
 	}
+}
+
+func verificar() { //vrificando tipos de datos en golang con el paquete reflect
+	var numero int = 3
+	var nombre string = "Jordy"
+	fmt.Println(reflect.TypeOf(numero))
+	fmt.Println(reflect.TypeOf(nombre))
 }
